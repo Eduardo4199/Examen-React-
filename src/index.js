@@ -2,14 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import * as Pages from './pages';
 import * as serviceWorker from './serviceWorker';
+import { Route, BrowserRouter as Router, Redirect, Switch } from 'react-router-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+const routing = (
+  <Router>
+    <Switch>
+      <Route exact path="/Login" component={Pages.Login} />
+      <Redirect from="/" to="/Login" /> {/*se debe revisar ya que en changePass no entra*/}
+    </Switch>
+  </Router>
+)
+
+ReactDOM.render( routing, 
   document.getElementById('root')
 );
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
