@@ -5,7 +5,15 @@ import { useForm } from "react-hook-form";
 export function Login(props) {
 
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = (data) => {
+        let response = userService.login(data);
+        if(response){
+            console.log("Gabuvi")
+        }
+        else{
+            console.log("a")
+        }
+    }
 
     return (
         <Fragment>
