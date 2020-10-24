@@ -10,12 +10,13 @@ const routing = (
   <Router>
     <Switch>
       <Route exact path="/Login" component={Pages.Login} />
-      <Redirect from="/" to="/Login" /> {/*se debe revisar ya que en changePass no entra*/}
+      {/* <Redirect from="/" to="/Login" /> {/*se debe revisar ya que en changePass no entra*/} */}
+      <Route exact path="/Home" component={Pages.Home} />
     </Switch>
   </Router>
 )
 
-ReactDOM.render( routing, 
+ReactDOM.render(routing,
   document.getElementById('root')
 );
 

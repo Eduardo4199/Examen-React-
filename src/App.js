@@ -1,6 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { UserProvider, UseUser } from './context/user.context';
+
+export default () => (
+  <UserProvider>
+    <App></App>
+  </UserProvider>
+);
+
 
 function App() {
   return (
@@ -22,5 +30,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
