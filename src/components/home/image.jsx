@@ -4,7 +4,7 @@ export function Image(props){
 
     return(
         <Fragment>
-            <div>
+            <div className="card">
                 {props.data.author}
                 <img src={props.data.download_url}/>
             </div>

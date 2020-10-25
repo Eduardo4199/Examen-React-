@@ -19,17 +19,21 @@ export function Home() {
 
     return (
         <Fragment>
-            <Paginator page={page} setPage={setPage} totalResults={totalResults} />
-            {images.map((image, index) =>
-                <Fragment key={index}>
+            <div className="container">
+                <div className="row">
+                    {images.map((image, index) =>
+                        <Fragment key={index}>
 
-                    {console.log(image)}
-                    <Image data={image} />
-                    <Link to={{ pathname: '/Image/' + image.id, data: image }}>
-                        Ver mas detalle
-                    </Link>
-                </Fragment>
-            )}
+                            {console.log(image)}
+                            <Image data={image} />
+                            <Link to={{ pathname: '/Image/' + image.id, data: image }}>
+                                Ver mas detalle
+                            </Link>
+                        </Fragment>
+                    )}
+                </div>
+                <Paginator page={page} setPage={setPage} totalResults={totalResults} />
+            </div>
         </Fragment>
     )
 }
