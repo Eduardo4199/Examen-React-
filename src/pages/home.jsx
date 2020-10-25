@@ -13,9 +13,9 @@ export function Home() {
 
     return (
         <Fragment>
-            {console.log(images)}
             {images.map((image, index) =>
                 <Fragment key={index}>
+                    {console.log(image)}
                     <Image data={image}/>
                 </Fragment>
             )}
