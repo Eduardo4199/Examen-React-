@@ -5,8 +5,8 @@ export const imagesService = {
     getImageById
 }
 
-async function getImages(){
-    return callApi('https://picsum.photos/v2/list','GET')
+async function getImages(page){
+    return callApi('https://picsum.photos/v2/list?page='+page,'GET')
     .then((data) =>{
         return data;
     }).catch((error) =>{
