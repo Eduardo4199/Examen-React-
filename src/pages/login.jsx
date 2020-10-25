@@ -1,17 +1,19 @@
-import React, { Fragment } from 'react';
+import React, { Fragment , useContext} from 'react';
 import { userService } from '../services/user.service'
 import { useForm } from "react-hook-form";
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import { UserContext } from '../context/user.context'
 
 
 export function Login(props) {
     const { register, handleSubmit } = useForm();
     const history = useHistory()
+    const {user, setUser} = useContext(UserContext)
 
     const onSubmit = (data) => {
         let response = userService.login(data);
         if (response) {
-            props.setUser(data);
+            setUser(data.user);
             history.push("/Home")
             return true
         }
