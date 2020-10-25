@@ -7,13 +7,13 @@ import * as Pages from './pages';
 
 export default function App() {
 
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({});
+  console.log(user)
   return (
     <Router>
       <Switch>
-        {/* <Route exact path="/Login" component={Pages.Login} setUser={() => setUser}/> */}
-        <Route path="/Login" render={props => <Pages.Login setUser={() => setUser} />} />
-        <UserContext.Provider value={user}>
+        <UserContext.Provider value={{ user, setUser }}>
+          <Route path="/Login" render={props => <Pages.Login setUser={() => setUser} />} />
           <Route exact path="/Home" component={Pages.Home} />
           <Route exact path="/Image/:id" component={Pages.ImageDetail} />
         </UserContext.Provider>

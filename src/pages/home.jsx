@@ -1,14 +1,18 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useContext, useEffect, useState } from 'react'
 import { imagesService } from '../services/images.service'
 import { Image } from '../components/home/image'
 import { Paginator } from '../components/home/paginator'
+import { UserContext } from '../context/user.context'
 
 
 export function Home() {
     const [images, setImages] = useState([]);
     const [page, setPage] = useState(1);
     const [totalResults, setTotalResults] = useState();
+    const {user} = useContext(UserContext)
 
+    console.log("Context")
+    console.log(user)
 
     useEffect(() => {
         imagesService.getImages(page).then((data) => {
