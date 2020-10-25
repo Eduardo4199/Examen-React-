@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { imagesService } from '../services/images.service'
 import { Image } from '../components/home/image'
 import { Paginator } from '../components/home/paginator'
-import { Link } from 'react-router-dom';
+
 
 export function Home() {
     const [images, setImages] = useState([]);
@@ -23,12 +23,7 @@ export function Home() {
                 <div className="row">
                     {images.map((image, index) =>
                         <Fragment key={index}>
-
-                            {console.log(image)}
                             <Image data={image} />
-                            <Link to={{ pathname: '/Image/' + image.id, data: image }}>
-                                Ver mas detalle
-                            </Link>
                         </Fragment>
                     )}
                 </div>
