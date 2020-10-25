@@ -3,7 +3,7 @@ import { imagesService } from '../services/images.service'
 import { Image } from '../components/home/image'
 
 export function Home() {
-    const [images, setImages] = useState({});
+    const [images, setImages] = useState([]);
 
     useEffect(() => {
         imagesService.getImages().then((data) => {
@@ -11,15 +11,14 @@ export function Home() {
         })
       }, [])
 
- useEffect(() => {console.log(images)},[images])
     return (
         <Fragment>
             {console.log(images)}
-{/*             {images.map((image, index) =>
+            {images.map((image, index) =>
                 <Fragment key={index}>
                     <Image data={image}/>
                 </Fragment>
-            )} */}
+            )}
         </Fragment>
     )
 }
