@@ -5,14 +5,12 @@ import App from './App';
 import * as Pages from './pages';
 import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router, Redirect, Switch } from 'react-router-dom';
+import { UserContext } from './context/user.context'
+
 
 const routing = (
   <Router>
-    <Switch>
-      <Route exact path="/Login" component={Pages.Login} />
-      {/* <Redirect from="/" to="/Login" /> {/*se debe revisar ya que en changePass no entra*/} */}
-      <Route exact path="/Home" component={Pages.Home} />
-    </Switch>
+    <App />
   </Router>
 )
 
