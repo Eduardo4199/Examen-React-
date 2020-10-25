@@ -15,6 +15,7 @@ export default function App() {
         <Route path="/Login" render={props => <Pages.Login setUser={() => setUser} />} />
         <UserContext.Provider value={user}>
           <Route exact path="/Home" component={Pages.Home} />
+          <Route exact path="/Image/:id" component={Pages.ImageDetail} />
         </UserContext.Provider>
       </Switch>
     </Router>
