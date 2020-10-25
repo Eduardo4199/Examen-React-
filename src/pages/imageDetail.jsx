@@ -1,22 +1,27 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
+import { imagesService } from '../services/images.service'
 import { Link } from 'react-router-dom';
 
 export function ImageDetail(props) {
 
+    const [image, setImage] = useState({})
+
+
+    useEffect(() => {
+        imagesService.getImageById(props.match.params.id).then((data) => {
+            console.log(data)
+            setImage(data)
+        })
+    }, [])
+
     return (
         <Fragment>
+            {console.log(image)}
             <div>
-
-                {props.location.data &&
+                {image &&
                     <Fragment>
-                        {props.location.data.author}
-                        < img src={props.location.data.download_url} />
-                    </Fragment>
-                }
-                {!props.location.data &&
-                    <Fragment>
-                        <h2>Oops! La imagen que buscas no se encuentra disponible</h2>
-                        <Link to="/Home"> Volver al inicio </Link>
+                        {image.author}
+                        < img src={image.download_url} />
                     </Fragment>
                 }
             </div>
