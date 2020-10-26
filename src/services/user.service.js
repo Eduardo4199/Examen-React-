@@ -1,12 +1,15 @@
+import useContext from 'react'
+
 export const userService = {
-    login
+    login,
+
 };
 
-function login(params){
-    if(params.password == "123456"){
+function login(params) {
+    if (params.password == "123456") {
         return true;
     }
-    else{
+    else {
         return false;
     }
 }
