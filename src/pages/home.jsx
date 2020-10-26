@@ -27,7 +27,7 @@ export function Home() {
         <Fragment>
             <Navbar theme={theme} setTheme={setTheme}></Navbar>
             <div className={`container ${theme}`}>
-                <div className="row">
+                <div className="card-columns">
                     {images.map((image, index) =>
                         <Fragment key={index}>
                             <Image data={image} />

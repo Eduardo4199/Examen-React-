@@ -5,15 +5,14 @@ export function Image(props) {
 
     return (
         <Fragment className="container">
-            <div className="card row">
-                <div className="card-body card-columns">
-                    {props.data.author}
-                    <img className="card-img-top img-fluid" src={props.data.download_url} />
-                    <Link to={ '/Image/' + props.data.id}>
-                        Ver mas detalle
-                    </Link>
+            <Link to={'/Image/' + props.data.id}>
+                <div className="card">
+                    <img className="card-img img-fluid" src={props.data.download_url} />
+                    <div className="card-body card-columns card-img-overlay">
+                        {props.data.author}
+                    </div>
                 </div>
-            </div>
+            </Link>
         </Fragment>
     )
 }

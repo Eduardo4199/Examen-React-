@@ -12,11 +12,11 @@ export function Navbar(props) {
         history.push("/Login")
     }
 
-    useEffect(() => {
+/*     useEffect(() => {
         if (user == undefined) {
             history.push("/Login")
         }
-    }, [])
+    }, []) */
 
     const changeTheme = () => {
         if(props.theme == "lightTheme"){
