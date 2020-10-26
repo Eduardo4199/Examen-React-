@@ -9,7 +9,7 @@ import ThemeSwitcher from './components/theme/themeSwitch'
 
 export default function App() {
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState();
   console.log(user)
   return (
     <Router>
