@@ -7,7 +7,7 @@ import * as Pages from './pages';
 
 export default function App() {
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState();
   console.log(user)
   return (
     <Router>
