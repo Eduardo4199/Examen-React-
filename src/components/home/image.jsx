@@ -9,7 +9,9 @@ export function Image(props) {
                 <div className="card">
                     <img className="card-img img-fluid" src={props.data.download_url} />
                     <div className="card-body card-columns card-img-overlay">
-                        {props.data.author}
+                        <div >
+                            <span class="badge badge-pill badge-warning">{props.data.author}</span>
+                        </div>
                     </div>
                 </div>
             </Link>
