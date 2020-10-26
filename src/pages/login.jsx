@@ -1,8 +1,9 @@
-import React, { Fragment , useContext} from 'react';
+import React, { Fragment , useContext, useState} from 'react';
 import { userService } from '../services/user.service'
 import { useForm } from "react-hook-form";
 import { useHistory } from 'react-router-dom';
 import { UserContext } from '../context/user.context'
+import '../assets/css/themes.css'
 
 
 export function Login(props) {
@@ -33,7 +34,6 @@ export function Login(props) {
                     </div>
                     <div>
                         <button type="submit">
-                        {props.asd}
                             Iniciar sesion
                         </button>
                     </div>

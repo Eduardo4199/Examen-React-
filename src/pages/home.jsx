@@ -4,16 +4,17 @@ import { Image } from '../components/home/image'
 import { Paginator } from '../components/home/paginator'
 import { UserContext } from '../context/user.context'
 import { Navbar } from '../components/navbar/navbar'
+import { ThemeContext } from '../context/theme.context'
 
 
 export function Home() {
     const [images, setImages] = useState([]);
     const [page, setPage] = useState(1);
     const [totalResults, setTotalResults] = useState();
-    const { user } = useContext(UserContext)
+    const { user } = useContext(UserContext);
+    const { theme, setTheme } = useContext(ThemeContext);
 
-    console.log("Context")
-    console.log(user)
+    console.log(theme)
 
     useEffect(() => {
         imagesService.getImages(page).then((data) => {
@@ -24,8 +25,8 @@ export function Home() {
 
     return (
         <Fragment>
-            <Navbar></Navbar>
-            <div className="container">
+            <Navbar theme={theme} setTheme={setTheme}></Navbar>
+            <div className={`container ${theme}`}>
                 <div className="row">
                     {images.map((image, index) =>
                         <Fragment key={index}>

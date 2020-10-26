@@ -18,6 +18,18 @@ export function Navbar(props) {
         }
     }, [])
 
+    const changeTheme = () => {
+        if(props.theme == "lightTheme"){
+            props.setTheme("darkTheme")
+        }
+        else if(props.theme == "darkTheme"){
+            props.setTheme("lightTheme")
+        }
+        else{
+            props.setTheme("lightTheme")
+        }
+    }
+
     return (
         <Fragment>
             <div class="pos-f-t">
@@ -28,6 +40,7 @@ export function Navbar(props) {
                             Home
                         </Link>
                         <button onClick={() => logout()}>Logout</button>
+                        <button onClick={() => changeTheme()}> Cambiar tema </button>
                     </div>
                 </div>
                 <nav class="navbar navbar-dark bg-dark">
