@@ -22,8 +22,31 @@ export function ImageDetail(props) {
             <div>
                 {image &&
                     <Fragment>
-                        {image.author}
-                        < img src={image.download_url} />
+                        <hr></hr>
+                        <div className="container">
+                            <div className="card">
+                                <div className="card-body">
+                                    <div className="row">
+                                        <div className="col">
+                                            <img src={image.download_url} className="img-thumbnail" />
+                                        </div>
+                                        <div className="col">
+                                            <div>
+                                                <h4>Subida por: {image.author}</h4>
+                                            </div>
+                                            <div>
+                                                {image.width}x{image.height}
+                                            </div>
+                                            <a href={image.download_url} target="_blank" >Descargar</a>
+                                            <hr></hr>
+                                            <a href={image.url}>
+                                                Imagen original
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </Fragment>
                 }
             </div>
