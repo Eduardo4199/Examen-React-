@@ -21,6 +21,13 @@ export default function App() {
             <Route exact path="/Image/:id" component={Pages.ImageDetail} />
           </ThemeContext.Provider>
         </UserContext.Provider>
+        <div
+      style={{
+        backgroundColor: 'blue',
+        width: '100px',
+        height: '100px'
+      }}
+    />
       </Switch>
     </Router>
 

@@ -3,16 +3,17 @@ import { Link } from 'react-router-dom'
 import { UserContext } from '../../context/user.context'
 import { useHistory } from 'react-router-dom';
 import '../../assets/css/navbar.css'
+import { ThemeContext } from '../../context/theme.context';
 
 export function Navbar(props) {
 
     const { user, setUser } = useContext(UserContext);
     const history = useHistory()
+    const { theme, setTheme } = useContext(ThemeContext);
     const logout = () => {
         setUser(null);
         history.push("/Login")
     }
-
     /*     useEffect(() => {
             if (user == undefined) {
                 history.push("/Login")
@@ -20,57 +21,50 @@ export function Navbar(props) {
         }, []) */
 
     const changeTheme = () => {
-        if (props.theme == "lightTheme") {
-            props.setTheme("darkTheme")
+        if (theme == "lightTheme") {
+            setTheme("darkTheme")
         }
-        else if (props.theme == "darkTheme") {
-            props.setTheme("lightTheme")
+        else if (theme == "darkTheme") {
+            setTheme("lightTheme")
         }
         else {
-            props.setTheme("lightTheme")
+            setTheme("lightTheme")
         }
+        console.log(theme)
     }
 
     return (
         <Fragment>
-            <div>
-                <div>
-                    <div>
-                        <h4 ></h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="area"></div><nav class="main-menu">
+            <div className="area"></div><nav className={`main-menu`}>
                 <ul>
                     <li>
-                        <i class="fa fa-user fa-2x"></i>
-                        <span class="nav-text" style={{color : 'white'}}>
+                        <i className="fa fa-user fa-2x"></i>
+                        <span className="nav-text" style={{color : 'white'}}>
                             {user}
                         </span>
                     </li>
                 </ul>
-                <li class="has-subnav">
+                <li className="has-subnav">
                     <Link to="/Home">
-                        <i class="fa fa-home fa-2x"></i>
-                        <span class="nav-text">
+                        <i className="fa fa-home fa-2x"></i>
+                        <span className="nav-text">
                             Home
                             </span>
                     </Link>
                 </li>
-                <li class="has-subnav">
+                <li className="has-subnav">
                     <a href="#" onClick={() => changeTheme()}>
-                        <i class="fa fa-laptop fa-2x"></i>
-                        <span class="nav-text">
+                        <i className="fa fa-laptop fa-2x"></i>
+                        <span className="nav-text">
                             Cambiar tema
                         </span>
                     </a>
                 </li>
-                <ul class="logout">
+                <ul className="logout">
                     <li>
                         <a href="#" onClick={() => logout()}>
-                            <i class="fa fa-power-off fa-2x"></i>
-                            <span class="nav-text">
+                            <i className="fa fa-power-off fa-2x"></i>
+                            <span className="nav-text">
                                 Logout
                         </span>
                         </a>

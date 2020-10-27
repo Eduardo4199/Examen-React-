@@ -1,11 +1,13 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useCallback, useContext, useEffect, useState } from 'react'
 import { imagesService } from '../services/images.service'
 import { Link } from 'react-router-dom';
 import { Navbar } from '../components/navbar/navbar'
+import { ThemeContext } from '../context/theme.context';
 
 export function ImageDetail(props) {
 
     const [image, setImage] = useState({})
+    const {theme} = useContext(ThemeContext)
 
 
     useEffect(() => {
@@ -23,8 +25,8 @@ export function ImageDetail(props) {
                 {image &&
                     <Fragment>
                         <hr></hr>
-                        <div className="container">
-                            <div className="card">
+                        <div className={`container ${theme}`}>
+                            <div className={`card ${theme}`}>
                                 <div className="card-body">
                                     <div className="row">
                                         <div className="col">
@@ -32,7 +34,7 @@ export function ImageDetail(props) {
                                         </div>
                                         <div className="col">
                                             <div>
-                                                <h4>Subida por: {image.author}</h4>
+                                                <h4 className={theme}>Subida por: {image.author}</h4>
                                             </div>
                                             <div>
                                                 {image.width}x{image.height}
