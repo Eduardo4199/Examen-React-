@@ -16,6 +16,7 @@ export default function App() {
       <Switch>
         <UserContext.Provider value={{ user, setUser }}>
           <Route path="/Login" render={props => <Pages.Login setUser={() => setUser} />} />
+          <Redirect from="/" to="/Login" />
           <ThemeContext.Provider value={{ theme, setTheme }}>
             <Route exact path="/Home" component={Pages.Home} />
             <Route exact path="/Image/:id" component={Pages.ImageDetail} />
