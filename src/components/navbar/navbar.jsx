@@ -2,16 +2,19 @@ import React, { Fragment, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../../context/user.context'
 import { useHistory } from 'react-router-dom';
+import '../../assets/css/navbar.css'
+import { ThemeContext } from '../../context/theme.context';
 
 export function Navbar(props) {
 
     const { user, setUser } = useContext(UserContext);
     const history = useHistory()
+    const { theme, setTheme } = useContext(ThemeContext);
     const logout = () => {
         setUser(null);
         history.push("/Login")
     }
-
+    
     useEffect(() => {
         if (user == undefined) {
             history.push("/Login")
@@ -19,36 +22,59 @@ export function Navbar(props) {
     }, [])
 
     const changeTheme = () => {
-        if(props.theme == "lightTheme"){
-            props.setTheme("darkTheme")
+        if (theme == "lightTheme") {
+            setTheme("darkTheme")
+            document.body.style.backgroundColor = "#141414"
         }
-        else if(props.theme == "darkTheme"){
-            props.setTheme("lightTheme")
+        else if (theme == "darkTheme") {
+            setTheme("lightTheme")
+            document.body.style.backgroundColor = "white"
         }
-        else{
-            props.setTheme("lightTheme")
+        else {
+            setTheme("lightTheme")
+            document.body.style.backgroundColor = "white"
         }
+        console.log(theme)
     }
 
     return (
         <Fragment>
-            <div class="pos-f-t">
-                <div class="collapse" id="navbarToggleExternalContent">
-                    <div class="bg-dark p-4">
-                        <h4 class="text-white">Bienvenido {user}</h4>
-                        <Link to="/Home">
+            <div className="area"></div><nav className={`main-menu`}>
+                <ul>
+                    <li className="has-subnav">
+                        <i className="fa fa-user fa-2x"></i>
+                        <span className="nav-text" style={{ color: 'white' }}>
+                            {user}
+                        </span>
+                    </li>
+                </ul>
+                <li className="has-subnav">
+                    <Link to="/Home">
+                        <i className="fa fa-home fa-2x"></i>
+                        <span className="nav-text">
                             Home
-                        </Link>
-                        <button onClick={() => logout()}>Logout</button>
-                        <button onClick={() => changeTheme()}> Cambiar tema </button>
-                    </div>
-                </div>
-                <nav class="navbar navbar-dark bg-dark">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </nav>
-            </div>
+                            </span>
+                    </Link>
+                </li>
+                <li className="has-subnav">
+                    <a href="#" onClick={() => changeTheme()}>
+                        <i className="fa fa-adjust fa-2x"></i>
+                        <span className="nav-text">
+                            Cambiar tema
+                        </span>
+                    </a>
+                </li>
+                <ul className="logout">
+                    <li>
+                        <a href="#" onClick={() => logout()}>
+                            <i className="fa fa-power-off fa-2x"></i>
+                            <span className="nav-text">
+                                Logout
+                        </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </Fragment>
     )
 }

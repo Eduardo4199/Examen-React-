@@ -5,6 +5,7 @@ import { Paginator } from '../components/home/paginator'
 import { UserContext } from '../context/user.context'
 import { Navbar } from '../components/navbar/navbar'
 import { ThemeContext } from '../context/theme.context'
+import '../assets/css/themes.css'
 
 
 export function Home() {
@@ -25,12 +26,12 @@ export function Home() {
 
     return (
         <Fragment>
-            <Navbar theme={theme} setTheme={setTheme}></Navbar>
+            <Navbar theme={theme}></Navbar>
             <div className={`container ${theme}`}>
-                <div className="row">
+                <div className={`card-columns ${theme}`}>
                     {images.map((image, index) =>
                         <Fragment key={index}>
-                            <Image data={image} />
+                            <Image data={image} theme={theme}/>
                         </Fragment>
                     )}
                 </div>
