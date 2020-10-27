@@ -2,6 +2,7 @@ import React, { Fragment, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../../context/user.context'
 import { useHistory } from 'react-router-dom';
+import '../../assets/css/navbar.css'
 
 export function Navbar(props) {
 
@@ -12,43 +13,71 @@ export function Navbar(props) {
         history.push("/Login")
     }
 
-/*     useEffect(() => {
-        if (user == undefined) {
-            history.push("/Login")
-        }
-    }, []) */
+    /*     useEffect(() => {
+            if (user == undefined) {
+                history.push("/Login")
+            }
+        }, []) */
 
     const changeTheme = () => {
-        if(props.theme == "lightTheme"){
+        if (props.theme == "lightTheme") {
             props.setTheme("darkTheme")
         }
-        else if(props.theme == "darkTheme"){
+        else if (props.theme == "darkTheme") {
             props.setTheme("lightTheme")
         }
-        else{
+        else {
             props.setTheme("lightTheme")
         }
     }
 
     return (
         <Fragment>
-            <div class="pos-f-t">
-                <div class="collapse" id="navbarToggleExternalContent">
-                    <div class="bg-dark p-4">
-                        <h4 class="text-white">Bienvenido {user}</h4>
-                        <Link to="/Home">
-                            Home
-                        </Link>
-                        <button onClick={() => logout()}>Logout</button>
-                        <button onClick={() => changeTheme()}> Cambiar tema </button>
+            <div>
+                <div>
+                    <div>
+                        <h4 ></h4>
                     </div>
                 </div>
-                <nav class="navbar navbar-dark bg-dark">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </nav>
             </div>
+
+            <div class="area"></div><nav class="main-menu">
+                <ul>
+                    <li>
+                        <i class="fa fa-user fa-2x"></i>
+                        <span class="nav-text" style={{color : 'white'}}>
+                            {user}
+                        </span>
+                    </li>
+                </ul>
+                <li class="has-subnav">
+                    <Link to="/Home">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                            Home
+                            </span>
+                    </Link>
+                </li>
+                <li class="has-subnav">
+                    <a href="#" onClick={() => changeTheme()}>
+                        <i class="fa fa-laptop fa-2x"></i>
+                        <span class="nav-text">
+                            Cambiar tema
+                        </span>
+                    </a>
+                </li>
+                <ul class="logout">
+                    <li>
+                        <a href="#" onClick={() => logout()}>
+                            <i class="fa fa-power-off fa-2x"></i>
+                            <span class="nav-text">
+                                Logout
+                        </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
         </Fragment>
     )
 }
