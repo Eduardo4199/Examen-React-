@@ -19,7 +19,6 @@ export function ImageDetail(props) {
 
     return (
         <Fragment>
-            {console.log(image)}
             <Navbar></Navbar>
             <div>
                 {image &&

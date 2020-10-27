@@ -14,21 +14,25 @@ export function Navbar(props) {
         setUser(null);
         history.push("/Login")
     }
-    /*     useEffect(() => {
-            if (user == undefined) {
-                history.push("/Login")
-            }
-        }, []) */
+    
+    useEffect(() => {
+        if (user == undefined) {
+            history.push("/Login")
+        }
+    }, [])
 
     const changeTheme = () => {
         if (theme == "lightTheme") {
             setTheme("darkTheme")
+            document.body.style.backgroundColor = "#141414"
         }
         else if (theme == "darkTheme") {
             setTheme("lightTheme")
+            document.body.style.backgroundColor = "white"
         }
         else {
             setTheme("lightTheme")
+            document.body.style.backgroundColor = "white"
         }
         console.log(theme)
     }
@@ -39,7 +43,7 @@ export function Navbar(props) {
                 <ul>
                     <li>
                         <i className="fa fa-user fa-2x"></i>
-                        <span className="nav-text" style={{color : 'white'}}>
+                        <span className="nav-text" style={{ color: 'white' }}>
                             {user}
                         </span>
                     </li>
@@ -54,7 +58,7 @@ export function Navbar(props) {
                 </li>
                 <li className="has-subnav">
                     <a href="#" onClick={() => changeTheme()}>
-                        <i className="fa fa-laptop fa-2x"></i>
+                        <i className="fa fa-adjust fa-2x"></i>
                         <span className="nav-text">
                             Cambiar tema
                         </span>
@@ -71,7 +75,6 @@ export function Navbar(props) {
                     </li>
                 </ul>
             </nav>
-
         </Fragment>
     )
 }

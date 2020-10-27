@@ -6,12 +6,17 @@ export function Paginator(props) {
         props.setPage(props.page + newPage)
     }
 
-    console.log(props.totalResults)
     return (
         <Fragment>
             <div className="">
-                <button classname="btn btn-outline-primary" onClick={() => changePage(-1)} disabled={props.page == 1 ? true : false}>Atras</button>
-                <button onClick={() => changePage(1)} disabled={props.totalResults == 30 ? false : true}>Siguiente</button>
+                <ul className="pagination justify-content-center">
+                    <li className={props.page == 1 ? 'page-item disabled' : 'page-item '}>
+                        <a class="page-link" href="#" onClick={() => changePage(-1)}>Previous</a>
+                    </li>
+                    <li className={props.totalResults == 30 ? "page-item" : "page-item disabled"}>
+                        <a class="page-link" href="#" onClick={() => changePage(1)}>Next</a>
+                    </li>
+                </ul>
             </div>
         </Fragment>
     )
