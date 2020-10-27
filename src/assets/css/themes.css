@@ -1,0 +1,23 @@
+
+.darkTheme {
+    background: #141414 !important;
+    background-color:#141414 !important;
+    color: white;
+    border: rgb(82, 82, 82);
+  }
+
+  .lightTheme {
+    background: #c5c5c5 !important;
+    background-color: rgb(255, 255, 255) !important;
+    color: rgb(0, 0, 0);
+    border: rgb(255, 255, 255);
+  }´
+
+.darkButton {
+  background-color:#141414 !important;
+}
+
+
+.lightButton {
+  background-color:#fff !important;
+}
