@@ -28,7 +28,7 @@ export function Login(props) {
     return (
         <Fragment>
             <div class="container login_background">
-                <div class="d-flex justify-content-center h-100">
+                <div class="d-flex justify-content-center mx-2 login_position">
                     <div class="card">
                         <div class="card-header">
                             <h3>Login</h3>
