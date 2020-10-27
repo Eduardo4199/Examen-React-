@@ -38,6 +38,7 @@ export function ImageDetail(props) {
                                             <div>
                                                 {image.width}x{image.height}
                                             </div>
+                                            <hr></hr>
                                             <a href={image.download_url} target="_blank" >Descargar</a>
                                             <hr></hr>
                                             <a href={image.url}>
