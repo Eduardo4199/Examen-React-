@@ -41,7 +41,7 @@ export function Navbar(props) {
         <Fragment>
             <div className="area"></div><nav className={`main-menu`}>
                 <ul>
-                    <li>
+                    <li className="has-subnav">
                         <i className="fa fa-user fa-2x"></i>
                         <span className="nav-text" style={{ color: 'white' }}>
                             {user}

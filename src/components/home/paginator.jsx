@@ -1,6 +1,9 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
+import { ThemeContext } from '../../context/theme.context'
 
 export function Paginator(props) {
+
+    const {theme, setTheme } = useContext(ThemeContext);
 
     const changePage = (newPage) => {
         props.setPage(props.page + newPage)
@@ -8,13 +11,13 @@ export function Paginator(props) {
 
     return (
         <Fragment>
-            <div className="">
-                <ul className="pagination justify-content-center">
+            <div>
+                <ul className={`pagination justify-content-center`}>
                     <li className={props.page == 1 ? 'page-item disabled' : 'page-item '}>
-                        <a class="page-link" href="#" onClick={() => changePage(-1)}>Previous</a>
+                        <a className={`page-link ${theme == "lightTheme" ?  'lightButton' : 'darkButton' }`} href="#" onClick={() => changePage(-1)} >Previous</a>
                     </li>
                     <li className={props.totalResults == 30 ? "page-item" : "page-item disabled"}>
-                        <a class="page-link" href="#" onClick={() => changePage(1)}>Next</a>
+                        <a className={`page-link ${theme == "lightTheme" ?  'lightButton' : 'darkButton' }`} href="#" onClick={() => changePage(1)}>Next</a>
                     </li>
                 </ul>
             </div>
