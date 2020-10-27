@@ -14,12 +14,12 @@ export function Navbar(props) {
         setUser(null);
         history.push("/Login")
     }
-    
-    useEffect(() => {
-        if (user == undefined) {
-            history.push("/Login")
-        }
-    }, [])
+
+        useEffect(() => {
+            if (user == undefined) {
+                history.push("/Login")
+            }
+        }, [])
 
     const changeTheme = () => {
         if (theme == "lightTheme") {
@@ -39,31 +39,36 @@ export function Navbar(props) {
 
     return (
         <Fragment>
-            <div className="area"></div><nav className={`main-menu`}>
-                <ul>
-                    <li className="">
-                        <i className="fa fa-user fa-2x"></i>
-                        <span className="nav-text" style={{ color: 'white' }}>
+            <div className="area"></div><nav class="main-menu">
+                <hr></hr>
+                <div>
+                    <li className="has-subnav">
+                        <i className="fas fa-user nav-icon icon-color"></i>
+                        <span className="user-text">
                             {user}
                         </span>
                     </li>
-                </ul>
-                <li className="has-subnav">
-                    <Link to="/Home">
-                        <i className="fa fa-home fa-2x"></i>
-                        <span className="nav-text">
-                            Home
+                </div>
+                <hr></hr>
+                <ul>
+                    <li className="has-subnav">
+                        <Link to="/Home">
+                            <i className="fa fa-home fa-2x"></i>
+                            <span className="nav-text">
+                                Home
                             </span>
-                    </Link>
-                </li>
-                <li className="has-subnav">
-                    <a href="#" onClick={() => changeTheme()}>
-                        <i className="fa fa-adjust fa-2x"></i>
-                        <span className="nav-text">
-                            Cambiar tema
+                        </Link>
+                    </li>
+                    <li className="has-subnav">
+                        <a href="#" onClick={() => changeTheme()}>
+                            <i className="fa fa-adjust fa-2x"></i>
+                            <span className="nav-text">
+                                Cambiar tema
                         </span>
-                    </a>
-                </li>
+                        </a>
+                    </li>
+                </ul>
+
                 <ul className="logout">
                     <li>
                         <a href="#" onClick={() => logout()}>
@@ -75,6 +80,7 @@ export function Navbar(props) {
                     </li>
                 </ul>
             </nav>
+
         </Fragment>
     )
 }
